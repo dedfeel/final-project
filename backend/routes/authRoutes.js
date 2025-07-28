@@ -1,6 +1,6 @@
 let express = require('express')
 const { users, login, register } = require('../controllers/authControllers')
-const { loginLimited, authenticateToken } = require('../middlewere/authMiddlewere')
+const { loginLimited, authenticateToken } = require('../middleware/authMiddleware')
 
 let router = express.Router()
 

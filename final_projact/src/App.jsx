@@ -9,6 +9,8 @@ import Seriktestik from './pages/Seriktestik'
 import Profile from './pages/Profile'
 import Qupia from './pages/Qupia'
 import Aqparat from './pages/Aqparat'
+import Kiru from './pages/Kiru'
+import Tirkelu from './pages/Tirkelu'
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/qupia' element={<Qupia/>}/>
           <Route path='/aqparat' element={<Aqparat/>}/>
+          <Route path='/kiru' element={<Kiru/>}/>
+          <Route path='/tirkelu' element={<Tirkelu/>}/>
         </Routes>
       </BrowserRouter>
       

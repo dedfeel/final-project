@@ -5,7 +5,7 @@ let {JWT_SECRET} = require('../config/env')
 function authenticateToken(req,res,next){
     let authHeader = req.headers.authorization
 
-    if(!authHeader) req.status(401).json({message: "Token missing!"})
+    if(!authHeader) return res.status(401).json({message: "Token missing!"})
 
     let token = authHeader.split(" ")[1]
 
