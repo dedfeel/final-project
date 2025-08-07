@@ -149,6 +149,7 @@ export default function Doktor() {
     return (
         <div>
             <Header/>
+            <div className='display-element'></div>
             <section className='doktor'>
                 <h1 className='doktor-text1'>Денсаулық – басты байлық. Біздің Densaulyq.AI – сіздің сенімді серігіңіз.</h1>
 

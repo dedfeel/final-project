@@ -44,7 +44,7 @@ export default function Foot() {
               </div>
 
           </div>
-          
+          {/* <p>Барлық құқықтар қорғалған</p> */}
     </div>
     
   )

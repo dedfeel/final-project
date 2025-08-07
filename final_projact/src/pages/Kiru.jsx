@@ -16,16 +16,13 @@ export default function Kiru() {
     e.preventDefault()
     try{
 
-        let response = await axios.post('http://localhost:8888/api/login', formData)
+        let response = await axios.post('https://densaulyq-backend.onrender.com/api/login', formData)
 
         console.log(response.data);
 
         localStorage.setItem('token', response.data.token)
-
-        
         
         navigate('/')
-
     }catch(err){
         console.error(err.message);
     }

@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     margin-left: 20%;
-    gap: 30px;
+    gap: 60px;
 }
 
 .head-a {
@@ -57,11 +57,29 @@
   color: rgb(255, 255, 255);
   border: 1px solid rgb(47, 61, 117);
   background-color: rgb(47, 61, 117);
-  padding: 15px;
+  padding: 13px;
   border-radius: 100px;
+  margin-left: 200px;
 }
 
+.profile-img{
+  width: 60px;
+}
 
+/* clinic */
+
+.clinic-section{
+  margin: 3% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+} 
+
+.clinic-text{
+  margin-bottom:  1%;
+  color:  rgb(47, 61, 117);
+}
 /* doktor.jsx */
 
 .doktor-text1{
@@ -73,9 +91,115 @@
   width: 3;
 }
 
+/* .display-element{
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(255, 0, 0, 0.329);
+  border-radius: 100%;
+}
+ */
+
+ /* profile */
+
+ .profile-section{
+  background-color:  rgb(47, 61, 117);
+  margin-top: 3%;
+  width: 100%;
+ }
+  
+  
+ .profile-text{
+    margin-left: 45%;
+    color: white;
+    padding-top: 20px;
+    font-size: 2em;
+ }
+  
+
+  .profile-content {
+      padding: 40px 30px 30px;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .profile-item {
+      display: flex;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+  }
+  
+  .profile-item:last-child {
+      border-bottom: none;
+  }
+  
+  .profile-item:hover {
+      color:  rgb(47, 61, 117);
+      padding-left: 10px;
+      border-radius: 6px;
+  }
+  
+  .profile-label {
+      font-weight: 600;
+      width: 40%;
+      color: #ffffff;
+      font-size: 16px;
+  }
+
+  
+  
+  .profile-value {
+      width: 60%;
+      color: #ffffff;
+      font-size: 16px;
+  }
+  
+  .profile-icon {
+      display: flex;
+      justify-content: center;
+      margin-top: -35px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+  }
+  
+  
+  
+
+  
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media (max-width: 500px) {
+      .profile-item {
+          flex-direction: column;
+      }
+      
+      .profile-label, 
+      .profile-value {
+          width: 100%;
+      }
+      
+      .profile-label {
+          margin-bottom: 5px;
+      }
+  }
 
 
+  .ozgertu-section{
+    margin-left: 10%;
+  }
 
+  .ozgerrtu, .shygu, .oshiru{
+    background-color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 
 
 
@@ -221,6 +345,7 @@
   font-size: 18px;
   max-width: 800px;
   margin-left: 1%;
+  line-height: 1.8;
 }
 
 .speech-bubble::after {
@@ -424,7 +549,11 @@
   z-index: 0;
   animation: shadow-pulse 1s infinite alternate;
 }
+
+
+
 /* footer */  
+
 
 .footer{
   width: 100%;

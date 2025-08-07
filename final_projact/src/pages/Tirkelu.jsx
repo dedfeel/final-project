@@ -11,7 +11,7 @@ export default function Tirkelu() {
 
     const [formData, setFormData] = useState({
         username: '',
-        usersurname: '',
+        surname: '',
         birth_date:'',
         gender: '',
         phonenumber: '',
@@ -24,24 +24,24 @@ export default function Tirkelu() {
   
   async function handleSubmit(e) {
     e.preventDefault()
-
+    console.log(formData);
     if(formData.password == confirmPassword){
       try{
-        let response = await axios.post('http://localhost:8888/api/register', formData)
+        let response = await axios.post('https://densaulyq-backend.onrender.com/api/register', formData)
         console.log(response.data[0]);
 
-        if(response.rows.length > 0){
+        // if(response.rows.length > 0){
 
-        }
-
+        // }
         navigate('/kiru')
       }catch(err){
         console.error(err.message);
       }
     }else{
-      setError('Құпия сөзді дұрыс енгізіңіз')
+      setError('Құпия сөздер сәйкес келмейді!')
     }
   } 
+
 
   return (
     <>
@@ -156,7 +156,7 @@ export default function Tirkelu() {
               
               {error && 
                 <div>
-                  <p style={{color: "red"}}>Құпия сөз бірдей емес. {error}</p>
+                  <p style={{color: "red"}}>{error}</p>
                 </div>
 
               }

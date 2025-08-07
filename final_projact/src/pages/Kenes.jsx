@@ -13,6 +13,22 @@ export default function Kenes() {
   const [isLoading, setIsLoading] = useState(false);
   const [clinic, setClinic] = useState(null);
 
+
+  const [clinics, setClinics] = useState([]);
+
+  useEffect(() => {
+    const fetchClinics = async () => {
+      try {
+        const response = await axios.get('https://densaulyq-backend.onrender.com/api/clinic');
+        setClinics(response.data);
+      } catch (error) {
+        console.error('Клиникалар тізімін жүктеу сәтсіз болды', error);
+      }
+    };
+
+    fetchClinics();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -63,8 +79,8 @@ export default function Kenes() {
         };
         setUserInput('')
         setClinic(validatedClinic);
-      } catch (parseError) {
-        setError('Парсинг қатесі:', parseError);
+      } catch (err) {
+        setError('Парсинг қатесі:', err);
         throw new Error(`API жауабын өңдеу мүмкін емес: ${resultText.substring(0, 100)}...`);
       }
 
@@ -105,10 +121,46 @@ export default function Kenes() {
   }, [direction]);
 
 
+   
+
+
   return (
     <div>
       <Header/>
       <section className='kenes'>
+
+
+        <div className='clinic-section'>
+          <h2 className='clinic-text'>Клиникалар тізімі</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            {clinics.map((clinic) => (
+              <div key={clinic.id} style={{
+                border: '1px solid #ccc',
+                padding: '15px',
+                width: '300px',
+                borderRadius: '30px',
+                backgroundColor: ' rgb(47, 61, 117)',
+                color: 'white'
+              }}>
+                <img
+                  src={clinic.photo_url}
+                  alt={clinic.name}
+                  style={{ width: '100%', height: '290px', objectFit: 'cover', borderRadius: '20px' }}
+                />
+                <h1>{clinic.name}</h1>
+                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                  <p><strong>Мекен-жайы:</strong> {clinic.adres}</p>
+                  <p><strong>Жұмыс уақыты:</strong> {clinic.jumys_uaqyty}</p>
+                  <p><strong>Байланыс:</strong> {clinic.number_phone}</p>
+                  <p><strong>Сипаттама:</strong> {clinic.discription}</p>
+                </div>
+                
+              </div>
+            ))}
+          </div>
+        </div>
+
+
         <div className='kenes-div1'>
           <div className="image-container">
             <img className=' floating-image' style={{ transform: `translateY(${position}px)` }} src={DoctorAI} alt="" />
@@ -196,7 +248,9 @@ export default function Kenes() {
 
         {error && (
           <div className='error-message'>
-            Қате: {error}
+            Қате:  API жауабын өңдеу мүмкін емес, {error}
+           
+
           </div>
         )}
 

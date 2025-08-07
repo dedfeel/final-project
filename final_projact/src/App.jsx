@@ -11,6 +11,7 @@ import Qupia from './pages/Qupia'
 import Aqparat from './pages/Aqparat'
 import Kiru from './pages/Kiru'
 import Tirkelu from './pages/Tirkelu'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 function App() {
@@ -21,12 +22,17 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Doktor/>}/>
-          <Route path='/kenes' element={<Kenes/>}/>
-          <Route path='/kundelig' element={<Kundelig/>}/>
           <Route path='/bizturaly' element={<BizTuraly/>}/>
           <Route path='/seriktestik' element={<Seriktestik/>}/>
+
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/kenes' element={<Kenes/>}/>
+          <Route path='/kundelig' element={<Kundelig/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/qupia' element={<Qupia/>}/>
+        </Route>
+          
+          
           <Route path='/aqparat' element={<Aqparat/>}/>
           <Route path='/kiru' element={<Kiru/>}/>
           <Route path='/tirkelu' element={<Tirkelu/>}/>
